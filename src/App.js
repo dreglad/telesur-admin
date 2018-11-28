@@ -5,7 +5,7 @@ import { Admin, Resource, Delete, ListGuesser, EditGuesser } from 'react-admin';
 import { ArticleList, ArticleSectionList } from './components/articles';
 import { ServiceList } from './components/services';
 
-import buildProvider from './apiDataProvider';
+import buildProvider from './dataProvider';
 
 class App extends Component {
   constructor() {
