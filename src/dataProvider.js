@@ -3,9 +3,7 @@ import get from 'lodash/get';
 
 import newsFragments from './queries/news.js';
 
-const fragments = {
-  ...newsFragments
-};
+const fragments = { ...newsFragments };
 
 const enhanceBuildQuery = (buildQuery) => (introspectionResults) => (fetchType, resourceName, params) => {
   const fragment = get(fragments, `${resourceName}.${fetchType}`);
@@ -20,4 +18,4 @@ export default async () => {
     },
     buildQuery: enhanceBuildQuery(buildQuery)
   });
-}
+};

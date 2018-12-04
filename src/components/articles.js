@@ -5,15 +5,39 @@ import {
   ChipField,
   Datagrid,
   DateField,
+  Filter,
   FunctionField,
   ImageField,
+  ReferenceInput,
   SingleFieldList,
   TextField,
+  TextInput,
   UrlField
 } from 'react-admin';
+import Typography from '@material-ui/core/Typography';
+
+const ArticleFilter = (props) => (
+  <Filter {...props}>
+    <TextInput label="Encabezado" source="headline_contains" alwaysOn />
+    <TextInput label="Descripción" source="description_contains" alwaysOn />
+    {/*<TextInput label="Búsqueda" source="sections_some." alwaysOn />*/}
+    {/*<ReferenceInput label="ArticleSection" source="section" reference="users" allowEmpty>
+      <SelectInput optionText="name" />
+    </ReferenceInput>*/}
+  </Filter>
+);
+
+const ArticleAside = ({ translate }) => (
+    <div style={{ width: 200, margin: '1em' }}>
+        <Typography variant="title">Post details</Typography>
+        <Typography variant="body1">
+            {translate('articles.list.aside_label')}
+        </Typography>
+    </div>
+);
 
 export const ArticleList = props => (
-  <List {...props}>
+  <List {...props} filters={<ArticleFilter/>} aside={<ArticleAside/>}>
     <Datagrid rowClick="edit">
       <FunctionField
         label="Images"

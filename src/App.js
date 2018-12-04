@@ -2,20 +2,11 @@
 import React, { Component } from 'react';
 import { Admin, Resource, Delete, ListGuesser, EditGuesser } from 'react-admin';
 import { ArticleList, ArticleSectionList } from './components/articles';
+import { ClipList } from './components/clips';
 import { ServiceList } from './components/services';
+import { PlaylistList, VideoList } from './components/videos';
 import buildProvider from './dataProvider';
-import englishMessages from 'ra-language-english';
-import spanishMessages from 'ra-language-spanish';
-
-const messages = {
-  en: englishMessages,
-  es: spanishMessages
-}
-
-const i18nProvider = locale => {
-  console.log(messages[locale])
-  return messages[locale];
-};
+import { i18nProvider } from './i18n';
 
 class App extends Component {
   constructor() {
@@ -35,13 +26,18 @@ class App extends Component {
     }
 
     return (
-      <Admin dataProvider={dataProvider} locale="es" i18nProvider={i18nProvider}>
+      <Admin
+        dataProvider={dataProvider}
+        i18nProvider={i18nProvider}
+        locale="es"
+        title="teleSUR Admin"
+      >
         <Resource name="Service" list={ServiceList}/>
         <Resource name="ArticleSection" list={ArticleSectionList}/>
         <Resource name="Article" list={ArticleList}/>
-        {/*<Resource name="Video" list={ArticleList}/>
-        <Resource name="Serie" list={ArticleList}/>*/}
-        {/*<Resource name="Service" list={ServiceList} edit={ServiceEdit} create={ServiceCreate}/>*/}
+        <Resource name="Clip" list={ClipList}/>
+        <Resource name="Video" list={VideoList}/>
+        <Resource name="Playlist" list={PlaylistList}/>
       </Admin>
     );
   }
