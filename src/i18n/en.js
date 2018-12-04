@@ -1,5 +1,6 @@
 /* en */
 export default {
+  loading: 'Loading...',
   welcome: 'Welcome',
   articles: {
     list: {

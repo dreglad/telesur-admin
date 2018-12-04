@@ -1,5 +1,6 @@
 /* en */
 export default {
+  loading: 'Cargando',
   welcome: 'Bienvenido',
   articles: {
     list: {
@@ -28,6 +29,20 @@ export default {
       fields: {
         name: 'Nombre',
       }
-    }
+    },
+    Playlist: {
+      name: 'Lista |||| Listas',
+      fields: {
+        name: 'nombre'
+      }
+    },
+    Video: {
+      name: 'Video |||| Videos',
+      fields: {
+        name: 'Nombre',
+        description: 'Descripción',
+        datePublished: 'Fecha de publicación'
+      }
+    },
   }
 };
