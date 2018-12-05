@@ -15,6 +15,8 @@ import {
   UrlField
 } from 'react-admin';
 import Typography from '@material-ui/core/Typography';
+import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
+import BookmarkIcon from '@material-ui/icons/Bookmark';
 
 const ArticleFilter = (props) => (
   <Filter {...props}>
@@ -65,3 +67,6 @@ export const ArticleSectionList = props => (
     </Datagrid>
   </List>
 );
+
+export const ArticleSectionIcon = BookmarkIcon;
+export const ArticleIcon = LibraryBooksIcon;

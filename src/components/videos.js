@@ -6,6 +6,8 @@ import {
   List,
   TextField
 } from 'react-admin';
+import VideoLibraryIcon from '@material-ui/icons/VideoLibrary';
+import ViewListIcon from '@material-ui/icons/ViewList';
 
 export const PlaylistList = props => (
   <List {...props}>
@@ -31,3 +33,6 @@ export const VideoList = props => (
     </Datagrid>
   </List>
 );
+
+export const VideoIcon = VideoLibraryIcon;
+export const PlaylistIcon = ViewListIcon;

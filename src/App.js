@@ -1,10 +1,10 @@
 // in App.js
 import React, { Component } from 'react';
 import { Admin, Resource, Delete, ListGuesser, EditGuesser } from 'react-admin';
-import { ArticleList, ArticleSectionList } from './components/articles';
-import { ClipList } from './components/clips';
-import { ServiceList } from './components/services';
-import { PlaylistList, VideoList } from './components/videos';
+import { ArticleList, ArticleSectionList, ArticleIcon, ArticleSectionIcon } from './components/articles';
+import { ClipList, ClipIcon } from './components/clips';
+import { ServiceList, ServiceIcon } from './components/services';
+import { PlaylistList, VideoList, PlaylistIcon, VideoIcon } from './components/videos';
 import buildProvider from './dataProvider';
 import { i18nProvider } from './i18n';
 
@@ -32,12 +32,12 @@ class App extends Component {
         locale="es"
         title="teleSUR Admin"
       >
-        <Resource name="Service" list={ServiceList}/>
-        <Resource name="ArticleSection" list={ArticleSectionList}/>
-        <Resource name="Article" list={ArticleList}/>
-        <Resource name="Clip" list={ClipList}/>
-        <Resource name="Video" list={VideoList}/>
-        <Resource name="Playlist" list={PlaylistList}/>
+        <Resource name="Service" list={ServiceList} icon={ServiceIcon} />
+        <Resource name="ArticleSection" list={ArticleSectionList} icon={ArticleSectionIcon}/>
+        <Resource name="Article" list={ArticleList} icon={ArticleIcon} />
+        <Resource name="Clip" list={ClipList} icon={ClipIcon} />
+        <Resource name="Video" list={VideoList} icon={VideoIcon} />
+        <Resource name="Playlist" list={PlaylistList} icon={PlaylistIcon} />
       </Admin>
     );
   }

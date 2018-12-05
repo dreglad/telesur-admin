@@ -6,6 +6,7 @@ import {
   List,
   TextField
 } from 'react-admin';
+import LiveTvIcon from '@material-ui/icons/LiveTv';
 
 export const ClipList = props => (
   <List {...props}>
@@ -22,3 +23,5 @@ export const ClipList = props => (
     </Datagrid>
   </List>
 );
+
+export const ClipIcon = LiveTvIcon;
