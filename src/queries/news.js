@@ -10,6 +10,7 @@ export default {
         description
         datePublished
         images
+        url
         sections {
           id
           name

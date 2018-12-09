@@ -1,10 +1,12 @@
 // in App.js
 import React, { Component } from 'react';
 import { Admin, Resource, Delete, ListGuesser, EditGuesser } from 'react-admin';
-import { ArticleList, ArticleSectionList, ArticleIcon, ArticleSectionIcon } from './components/articles';
+import { ArticleList, ArticleIcon } from './components/articles/article';
+import { ArticleSectionList, ArticleSectionIcon } from './components/articles/section';
 import { ClipList, ClipIcon } from './components/clips';
 import { ServiceList, ServiceIcon } from './components/services';
-import { PlaylistList, VideoList, PlaylistIcon, VideoIcon } from './components/videos';
+import { PlaylistList, PlaylistIcon } from './components/videos/playlist';
+import { VideoList, VideoIcon } from './components/videos/video';
 import buildProvider from './dataProvider';
 import { i18nProvider } from './i18n';
 
