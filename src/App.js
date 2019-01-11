@@ -1,9 +1,12 @@
 // in App.js
 import React, { Component } from 'react';
-import { Admin, Resource, Delete, ListGuesser, EditGuesser } from 'react-admin';
-import { ArticleList, ArticleIcon } from './components/articles/article';
-import { ArticleSectionList, ArticleSectionIcon } from './components/articles/section';
-import { ClipList, ClipIcon } from './components/clips';
+import { Admin, Resource } from 'react-admin';
+import { ArticleIcon, ArticleList, ArticleShow, SectionIcon, SectionList } from './components/news';
+import { ClipIcon, ClipList, ClipEdit, } from './components/clips/Clip';
+import { SerieIcon, SerieList } from './components/clips/Serie';
+import { GenreIcon, GenreList } from './components/clips/Genre';
+import { TopicIcon, TopicList } from './components/clips/Topic';
+import { CorrespondentIcon, CorrespondentList } from './components/clips/Correspondent';
 import { ServiceList, ServiceIcon } from './components/services';
 import { PlaylistList, PlaylistIcon } from './components/videos/playlist';
 import { VideoList, VideoIcon } from './components/videos/video';
@@ -35,11 +38,14 @@ class App extends Component {
         title="teleSUR Admin"
       >
         <Resource name="Service" list={ServiceList} icon={ServiceIcon} />
-        <Resource name="ArticleSection" list={ArticleSectionList} icon={ArticleSectionIcon}/>
-        <Resource name="Article" list={ArticleList} icon={ArticleIcon} />
-        <Resource name="Clip" list={ClipList} icon={ClipIcon} />
-        <Resource name="Video" list={VideoList} icon={VideoIcon} />
-        <Resource name="Playlist" list={PlaylistList} icon={PlaylistIcon} />
+        <Resource name="Article" list={ArticleList} show={ArticleShow} icon={ArticleIcon} />
+        <Resource name="ArticleSection" list={SectionList} icon={SectionIcon}/>
+        <Resource name="Clip" list={ClipList} edit={ClipEdit} icon={ClipIcon} />
+        <Resource name="Serie" list={SerieList} icon={SerieIcon} />
+        <Resource name="Correspondent" list={CorrespondentList} icon={CorrespondentIcon} />
+        <Resource name="Genre" list={GenreList} icon={GenreIcon} />
+        <Resource name="Topic" list={TopicList} icon={TopicIcon} />
+        {/*<Resource name="Video" list={VideoList} icon={VideoIcon} />*/}
       </Admin>
     );
   }
