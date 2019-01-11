@@ -19,11 +19,10 @@ export const SerieList = props => (
       <FunctionField
         label="Thumbnail"
         render={({ poster }) => (
-          <img style={{maxWidth: 200, maxHeight: 200}} src={poster} />
+          <img style={{ maxWidth: 200, maxHeight: 200 }} src={poster} />
         )}
       />
-      <DateField source="date" showTime />
-      <TextField source="title" />
+      <TextField source="name" />
       <TextField source="description" />
     </Datagrid>
   </List>

@@ -17,7 +17,6 @@ const ClipEdit = props => (
     <SimpleForm>
       <DisabledInput source="id" />
       <TextInput source="title" />
-      <TextInput source="teaser" options={{ multiLine: true }} />
       <LongTextInput source="description" />
       <DateInput label="Publication date" source="published_at" />
       <TextInput source="average_note" />

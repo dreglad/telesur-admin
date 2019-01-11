@@ -1,15 +1,15 @@
 // in App.js
 import React, { Component } from 'react';
 import { Admin, Resource } from 'react-admin';
-import { ArticleIcon, ArticleList, ArticleShow, SectionIcon, SectionList } from './components/news';
-import { ClipIcon, ClipList, ClipEdit, } from './components/clips/Clip';
-import { SerieIcon, SerieList } from './components/clips/Serie';
-import { GenreIcon, GenreList } from './components/clips/Genre';
-import { TopicIcon, TopicList } from './components/clips/Topic';
-import { CorrespondentIcon, CorrespondentList } from './components/clips/Correspondent';
-import { ServiceList, ServiceIcon } from './components/services';
-import { PlaylistList, PlaylistIcon } from './components/videos/playlist';
-import { VideoList, VideoIcon } from './components/videos/video';
+import { ArticleIcon, ArticleList, ArticleShow, SectionIcon, SectionList } from './news';
+import { ClipIcon, ClipList, ClipEdit, } from './clips/Clip';
+import { SerieIcon, SerieList } from './clips/Serie';
+import { GenreIcon, GenreList } from './clips/Genre';
+import { TopicIcon, TopicList } from './clips/Topic';
+import { CorrespondentIcon, CorrespondentList } from './clips/Correspondent';
+import { ServiceList, ServiceIcon } from './services';
+import { PlaylistList, PlaylistIcon } from './videos/playlist';
+import { VideoList, VideoIcon } from './videos/video';
 import buildProvider from './dataProvider';
 import { i18nProvider } from './i18n';
 

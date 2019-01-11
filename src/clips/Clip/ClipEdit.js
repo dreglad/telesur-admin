@@ -32,7 +32,7 @@ const ClipEdit = props => (
         <ClipPlayer source="hls" />
         <DisabledInput source="id" />
         <TextInput source="title" />
-        <TextInput label="Genre" source="genre.id" options={{ multiLine: true }} />
+        <TextInput label="Genre" source="genre.id" />
         <LongTextInput source="description" />
         <DateInput label="Date" source="date" />
         <TextInput label="Serie" source="serie.id" />
