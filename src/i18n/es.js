@@ -30,10 +30,36 @@ export default {
         name: 'Nombre',
       }
     },
-    Playlist: {
-      name: 'Lista |||| Listas',
+    Clip: {
+      name: 'Clip |||| Clips',
       fields: {
-        name: 'nombre'
+        title: 'Título',
+      }
+    },
+    Serie: {
+      name: 'Programa |||| Programas',
+      fields: {
+        name: 'Nombre',
+        poster: 'Póster',
+      }
+    },
+    Genre: {
+      name: 'Tipo |||| Tipos',
+      fields: {
+        name: 'Nombre',
+      }
+    },
+    Topic: {
+      name: 'Tema |||| Temas',
+      fields: {
+        name: 'Nombre'
+      }
+    },
+    Correspondent: {
+      name: 'Corresponsal |||| Corresponsales',
+      fields: {
+        name: 'Nombre',
+        country: 'País'
       }
     },
     Video: {
