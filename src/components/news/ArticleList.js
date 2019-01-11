@@ -13,11 +13,10 @@ import {
   UrlField
 } from 'react-admin';
 import Typography from '@material-ui/core/Typography';
-import Icon from '@material-ui/icons/LibraryBooks';
 
-export const ArticleList = props => (
+const ArticleList = props => (
   <List {...props} filters={<ArticleFilter/>} aside={<ArticleAside/>}>
-    <Datagrid rowClick="edit">
+    <Datagrid rowClick="show">
       <FunctionField
         label="Images"
         render={({ images }) => (
@@ -57,4 +56,4 @@ const ArticleAside = ({ translate }) => (
     </div>
 );
 
-export const ArticleIcon = Icon;
+export default ArticleList;

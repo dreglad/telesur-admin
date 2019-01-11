@@ -4,9 +4,8 @@ import {
   Datagrid,
   TextField
 } from 'react-admin';
-import Icon from '@material-ui/icons/Bookmark';
 
-export const ArticleSectionList = props => (
+const SectionList = props => (
   <List {...props}>
     <Datagrid rowClick="edit">
       <TextField source="name"/>
@@ -14,4 +13,4 @@ export const ArticleSectionList = props => (
   </List>
 );
 
-export const ArticleSectionIcon = Icon;
+export default SectionList;
