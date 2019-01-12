@@ -1,5 +1,9 @@
 import React from 'react';
+import Button from '@material-ui/core/Button';
 import {
+  CardActions,
+  CreateButton,
+  RefreshButton,
   Datagrid,
   DateField,
   FunctionField,
@@ -11,7 +15,11 @@ import {
 } from 'react-admin';
 
 const ClipList = props => (
-  <List filters={<ClipFilter />} {...props}>
+  <List
+    filters={<ClipFilter />}
+    actions={<ClipActions />}
+    {...props}
+  >
     <Datagrid rowClick="edit">
       <FunctionField
         label="Thumbnail"
@@ -45,6 +53,49 @@ export const ClipFilter = props => (
       <SelectInput optionText="name"/>
     </ReferenceInput>
   </Filter>
+);
+
+const ClipActions = ({
+    bulkActions,
+    basePath,
+    currentSort,
+    displayedFilters,
+    exporter,
+    filters,
+    filterValues,
+    onUnselectItems,
+    resource,
+    selectedIds,
+    showFilter,
+    total
+}) => (
+  <CardActions>
+    {bulkActions && React.cloneElement(bulkActions, {
+      basePath,
+      filterValues,
+      resource,
+      selectedIds,
+      onUnselectItems,
+    })}
+    {filters && React.cloneElement(filters, {
+      resource,
+      showFilter,
+      displayedFilters,
+      filterValues,
+      context: 'button',
+    }) }
+    <CreateButton basePath={basePath} />
+    {/*<ExportButton
+      disabled={total === 0}
+      resource={resource}
+      sort={currentSort}
+      filter={filterValues}
+      exporter={exporter}
+    />*/}
+    <RefreshButton />
+    {/* Add your custom actions */}
+    {/*<Button primary onClick={customAction}>Custom Action</Button>*/}
+  </CardActions>
 );
 
 export default ClipList;
