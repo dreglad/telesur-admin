@@ -1,4 +1,3 @@
-// in App.js
 import React, { Component } from 'react';
 import { Admin, Resource } from 'react-admin';
 import { ArticleIcon, ArticleList, ArticleShow, SectionIcon, SectionList } from './news';
@@ -10,6 +9,7 @@ import { CorrespondentIcon, CorrespondentList } from './clips/Correspondent';
 import { ServiceList, ServiceIcon } from './services';
 import { PlaylistList, PlaylistIcon } from './videos/playlist';
 import { VideoList, VideoIcon } from './videos/video';
+import Menu from './Menu';
 import buildProvider from './dataProvider';
 import { i18nProvider } from './i18n';
 
@@ -34,6 +34,7 @@ class App extends Component {
       <Admin
         dataProvider={dataProvider}
         i18nProvider={i18nProvider}
+        menu={Menu}
         locale="es"
         title="teleSUR Admin"
       >
