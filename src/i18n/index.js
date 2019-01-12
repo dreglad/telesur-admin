@@ -10,6 +10,5 @@ export const messages = {
 };
 
 export const i18nProvider = locale => {
-  console.log(messages[locale])
   return messages[locale];
 };
