@@ -12,9 +12,9 @@ export { TopicIcon };
 export const TopicList = props => (
   <List {...props}>
     <Datagrid rowClick="edit">
+      <TextField source="id"/>
       <TextField source="name" />
       <TextField source="description" />
-      <DateField source="date" showTime />
     </Datagrid>
   </List>
 );

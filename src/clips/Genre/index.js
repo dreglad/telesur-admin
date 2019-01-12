@@ -16,6 +16,7 @@ export { GenreIcon };
 export const GenreList = props => (
   <List {...props}>
     <Datagrid>
+      <TextField source="id"/>
       <TextField source="name" />
     </Datagrid>
   </List>

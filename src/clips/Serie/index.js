@@ -3,25 +3,22 @@ import SerieIcon from '@material-ui/icons/LiveTv';
 import {
   Datagrid,
   DateField,
-  FunctionField,
+  SearchInput,
   List,
   TextField,
   Filter,
   ReferenceInput,
   SelectInput
 } from 'react-admin';
+import PosterField from './PosterField';
 
 export { SerieIcon };
 
 export const SerieList = props => (
   <List filters={<SerieFilter />} {...props}>
     <Datagrid rowClick="show">
-      <FunctionField
-        label="Thumbnail"
-        render={({ poster }) => (
-          <img style={{ maxWidth: 200, maxHeight: 200 }} src={poster} />
-        )}
-      />
+      <PosterField />
+      <TextField source="id"/>
       <TextField source="name" />
       <TextField source="description" />
     </Datagrid>
@@ -30,8 +27,6 @@ export const SerieList = props => (
 
 export const SerieFilter = props => (
   <Filter {...props}>
-    <ReferenceInput label="Series" source="series.id" reference="Serie" alwaysOn>
-      <SelectInput optionText="name"/>
-    </ReferenceInput>
+    <SearchInput source="search" alwaysOn />
   </Filter>
 );
