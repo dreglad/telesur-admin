@@ -2,6 +2,7 @@
   "name": "telesur-admin",
   "version": "0.1.0",
   "dependencies": {
+    "color-hash": "^1.0.3",
     "graphql": "^14.0.2",
     "graphql-tag": "^2.10.0",
     "lodash": "^4.17.11",
@@ -11,6 +12,7 @@
     "ra-language-spanish": "^1.0.0",
     "react": "^16.6.3",
     "react-admin": "^2.5.1",
+    "react-avatar": "^3.5.0",
     "react-dom": "^16.6.3",
     "react-player": "^1.8.0",
     "react-scripts": "^2.1.3"
