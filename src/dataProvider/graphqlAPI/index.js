@@ -1,6 +1,7 @@
 import buildPrismaProvider, { buildQuery } from 'ra-data-opencrud';
 import get from 'lodash/get';
 import fragments from './fragments';
+import client from './apolloClient';
 
 const enhanceBuildQuery = (buildQuery) => (introspectionResults) => (fetchType, resourceName, params) => {
   const fragment = get(fragments, `${resourceName}.${fetchType}`);
@@ -9,9 +10,7 @@ const enhanceBuildQuery = (buildQuery) => (introspectionResults) => (fetchType, 
 
 export default async () => {
   return await buildPrismaProvider({
-    clientOptions: {
-      uri: process.env.REACT_APP_API_ENDPOINT
-    },
+    client,
     buildQuery: enhanceBuildQuery(buildQuery)
   });
 };

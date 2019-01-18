@@ -2,6 +2,10 @@
   "name": "telesur-admin",
   "version": "0.1.0",
   "dependencies": {
+    "apollo-cache-inmemory": "^1.4.0",
+    "apollo-client": "^2.4.9",
+    "apollo-link-context": "^1.0.12",
+    "apollo-link-http": "^1.5.9",
     "color-hash": "^1.0.3",
     "graphql": "^14.0.2",
     "graphql-tag": "^2.10.0",
