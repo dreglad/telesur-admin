@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Admin, Resource } from 'react-admin';
 import { ArticleIcon, ArticleList, ArticleShow, SectionIcon, SectionList } from './news';
 import { ClipIcon, ClipList, ClipEdit, } from './clips/Clip';
-import { SerieIcon, SerieList } from './clips/Serie';
+import { SerieIcon, SerieList, SerieEdit } from './clips/Serie';
 import { GenreIcon, GenreList } from './clips/Genre';
 import { TopicIcon, TopicList } from './clips/Topic';
 import { CorrespondentIcon, CorrespondentList } from './clips/Correspondent';
@@ -42,7 +42,7 @@ class App extends Component {
         <Resource name="Article" list={ArticleList} show={ArticleShow} icon={ArticleIcon} />
         <Resource name="ArticleSection" list={SectionList} icon={SectionIcon}/>
         <Resource name="Clip" list={ClipList} edit={ClipEdit} icon={ClipIcon} />
-        <Resource name="Serie" list={SerieList} icon={SerieIcon} />
+        <Resource name="Serie" list={SerieList} edit={SerieEdit} icon={SerieIcon} />
         <Resource name="Correspondent" list={CorrespondentList} icon={CorrespondentIcon} />
         <Resource name="Genre" list={GenreList} icon={GenreIcon} />
         <Resource name="Topic" list={TopicList} icon={TopicIcon} />
