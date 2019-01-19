@@ -12,6 +12,7 @@ import { VideoList, VideoIcon } from './videos/video';
 import Menu from './Menu';
 import buildProvider from './dataProvider';
 import { i18nProvider } from './i18n';
+import theme from './theme';
 
 class App extends Component {
   constructor() {
@@ -35,6 +36,7 @@ class App extends Component {
         dataProvider={dataProvider}
         i18nProvider={i18nProvider}
         menu={Menu}
+        theme={theme}
         locale="es"
         title="teleSUR Admin"
       >
