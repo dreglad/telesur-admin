@@ -16,7 +16,8 @@ const authLink = setContext(async (_, { headers }) => {
   return {
     headers: {
       ...headers,
-      authorization: `Bearer ${await idToken}`
+      authorization: `Bearer ${await idToken}`,
+      'x-service-name': process.env.REACT_APP_SERVICE_NAME
     }
   }
 });
