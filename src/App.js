@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Admin, Resource } from 'react-admin';
+import createHistory from 'history/createBrowserHistory';
+import authProvider from './authProvider';
 import { ArticleIcon, ArticleList, ArticleShow, SectionIcon, SectionList } from './news';
 import { ClipIcon, ClipList, ClipEdit, } from './clips/Clip';
 import { SerieIcon, SerieList, SerieEdit } from './clips/Serie';
@@ -13,6 +15,8 @@ import Menu from './Menu';
 import buildProvider from './dataProvider';
 import { i18nProvider } from './i18n';
 import theme from './theme';
+
+const history = createHistory();
 
 class App extends Component {
   constructor() {
@@ -34,11 +38,15 @@ class App extends Component {
     return (
       <Admin
         dataProvider={dataProvider}
+        authProvider={authProvider}
+        customRoutes={customRoutes}
         i18nProvider={i18nProvider}
+        loginPage={LoginPage}
         menu={Menu}
         theme={theme}
         locale="es"
         title="teleSUR Admin"
+        history={history}
       >
         <Resource name="Service" list={ServiceList} icon={ServiceIcon} />
         <Resource name="Article" list={ArticleList} show={ArticleShow} icon={ArticleIcon} />
