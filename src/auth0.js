@@ -9,8 +9,8 @@ export const lock = new Auth0Lock(
   process.env.REACT_APP_AUTH0_CLIENT_ID,
   process.env.REACT_APP_AUTH0_DOMAIN,
   {
-    autoclose: true,
     allowPasswordAutocomplete: true,
+    closable: false,
     auth: {
       responseType: 'token id_token',
       params: {
@@ -31,9 +31,10 @@ export const setSession = authResult => {
   return getUserProfile(authResult)
     .then(profile => {
       localStorage.setItem(ACCESS_TOKEN, authResult.accessToken);
-      localStorage.setItem(ID_TOKEN, authResult.accessToken);
+      localStorage.setItem(ID_TOKEN, authResult.idToken);
       localStorage.setItem(EXPIRATION, new Date().getTime() + authResult.expiresIn * 1000);
       localStorage.setItem(PROFILE, JSON.stringify(profile));
+      lock.hide();
       return getSession();
     })
     .catch(e => { console.log('error', e) });

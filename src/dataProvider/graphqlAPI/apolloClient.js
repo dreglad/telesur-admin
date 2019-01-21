@@ -10,13 +10,13 @@ const httpLink = createHttpLink({
 
 const authLink = setContext(async (_, { headers }) => {
   // Check or renew session
-  const accessToken = checkSession()
-    .then(({ accessToken }) => accessToken)
+  const idToken = checkSession()
+    .then(({ idToken }) => idToken)
     .catch(() => '');
   return {
     headers: {
       ...headers,
-      authorization: `Bearer ${await accessToken}`
+      authorization: `Bearer ${await idToken}`
     }
   }
 });
