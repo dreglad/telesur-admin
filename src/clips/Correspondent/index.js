@@ -4,8 +4,10 @@ import ColorHash from 'color-hash';
 import CorrespondentIcon from '@material-ui/icons/Streetview';
 import {
   Datagrid,
+  Filter,
   FunctionField,
   List,
+  SearchInput,
   TextField
 } from 'react-admin';
 
@@ -14,7 +16,10 @@ const colorHash = new ColorHash();
 export { CorrespondentIcon };
 
 export const CorrespondentList = props => (
-  <List {...props}>
+  <List
+    filters={<CorrespondentFilter />}
+    {...props}
+  >
     <Datagrid rowClick="show">
       <TextField source="id" />
       <FunctionField
@@ -27,4 +32,10 @@ export const CorrespondentList = props => (
       <TextField source="country" />
     </Datagrid>
   </List>
+);
+
+export const CorrespondentFilter = props => (
+  <Filter {...props}>
+    <SearchInput source="search" alwaysOn />
+  </Filter>
 );
