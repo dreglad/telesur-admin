@@ -20,8 +20,7 @@ export const SerieList = props => (
   >
     <Datagrid rowClick="show">
       <PosterField />
-      <TextField source="id"/>
-      <TextField source="name" />
+      <TextField source="name" style={{ whiteSpace: 'nowrap' }} />
       <TextField source="description" />
     </Datagrid>
   </List>
