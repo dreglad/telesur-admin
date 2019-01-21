@@ -1,12 +1,8 @@
 /* en */
 export default {
-  loading: 'Loading...',
-  welcome: 'Welcome',
-  articles: {
-    list: {
-      aside_label: 'Articles are read-only'
-    }
+  layout: {
+    loading: 'Un momento...',
   },
-  resources: {
-  }
+  loading: 'Loading...',
+  welcome: 'Welcome'
 };

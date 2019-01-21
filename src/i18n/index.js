@@ -1,14 +1,16 @@
-import enAdmin from 'ra-language-english';
-import esAdmin from 'ra-language-spanish';
-
-import en from './en';
-import es from './es';
+import { resolveBrowserLocale } from 'react-admin';
+import enMessages from 'ra-language-english';
+import esMessages from 'ra-language-spanish';
+import enDomain from './en';
+import esDomain from './es';
 
 export const messages = {
-  en: { ...enAdmin, ...en },
-  es: { ...esAdmin, ...es }
+  en: { ...enMessages, ...enDomain },
+  es: { ...esMessages, ...esDomain }
 };
 
 export const i18nProvider = locale => {
   return messages[locale];
 };
+
+export const defaultLocale = localStorage.getItem('locale') || process.env.REACT_APP_DEFAULT_LOCALE || resolveBrowserLocale();

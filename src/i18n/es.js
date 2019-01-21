@@ -1,12 +1,10 @@
-/* en */
+/* es */
 export default {
-  loading: 'Cargando',
-  welcome: 'Bienvenido',
-  articles: {
-    list: {
-      aside_label: 'Los artículos de sólo lectura'
-    }
+  layout: {
+    loading: 'Un momento...',
   },
+  loading: 'Un momento...',
+  welcome: 'Bienvenido',
   resources: {
     Article: {
       name: 'Artículo |||| Artículos',
@@ -34,6 +32,20 @@ export default {
       name: 'Clip |||| Clips',
       fields: {
         title: 'Título',
+        url: 'URL',
+        date: 'Fecha',
+        description: 'Descripción',
+        thumbnail: 'Miniatura',
+        thumbnailSmall: 'Miniatura pequeña',
+        published: 'Publicado',
+        youtubeId: 'ID de Youtube',
+        uploadYoutube: 'Publicado en YouTube',
+        hls: 'HLS',
+        mp4: 'MP4',
+        category: 'Categoría',
+        genre: 'Tipo',
+        serie: 'Programa',
+        topic: 'Tema'
       }
     },
     Serie: {
