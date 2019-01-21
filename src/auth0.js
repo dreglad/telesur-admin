@@ -9,13 +9,19 @@ export const lock = new Auth0Lock(
   process.env.REACT_APP_AUTH0_CLIENT_ID,
   process.env.REACT_APP_AUTH0_DOMAIN,
   {
-    allowPasswordAutocomplete: true,
-    closable: false,
     auth: {
+      redirectUrl: process.env.REACT_APP_AUTH0_CALLBACK_URL,
+      autoParseHash: false,
       responseType: 'token id_token',
       params: {
         scope: 'openid profile email'
       }
+    },
+    allowSignUp: !!process.env.REACT_APP_AUTH0_ALLOW_SIGN_UP,
+    allowPasswordAutocomplete: true,
+    closable: false,
+    theme: {
+      logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a8/TeleSur.png'
     }
   }
 );

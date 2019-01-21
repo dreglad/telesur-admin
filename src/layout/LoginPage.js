@@ -7,15 +7,21 @@ import Loading from './Loading';
 
 class LoginPage extends Component {
   componentDidMount() {
-    const { userLogin, locale } = this.props;
+    lock.on('authenticated', this.props.userLogin)
 
-    lock.on('authenticated', userLogin)
-
-    if (!window.location.hash) {
-      lock.show({
-        language: locale
+    if (window.location.hash) {
+      lock.resumeAuth(window.location.hash, error => {
+        error && this.showLock();
       });
+    } else {
+      this.showLock();
     }
+  }
+
+  showLock () {
+    lock.show({
+      language: this.props.locale
+    })
   }
 
   render() {
