@@ -1,14 +1,9 @@
 import React from 'react';
-import GenreIcon from '@material-ui/icons/LiveTv';
+import GenreIcon from '@material-ui/icons/GroupWork';
 import {
   Datagrid,
-  DateField,
-  FunctionField,
   List,
-  TextField,
-  Filter,
-  ReferenceInput,
-  SelectInput
+  TextField
 } from 'react-admin';
 
 export { GenreIcon };

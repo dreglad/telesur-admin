@@ -1,16 +1,12 @@
 import React from 'react';
 import Avatar from 'react-avatar';
 import ColorHash from 'color-hash';
-import CorrespondentIcon from '@material-ui/icons/LiveTv';
+import CorrespondentIcon from '@material-ui/icons/Streetview';
 import {
   Datagrid,
-  DateField,
   FunctionField,
   List,
-  TextField,
-  Filter,
-  ReferenceInput,
-  SelectInput
+  TextField
 } from 'react-admin';
 
 const colorHash = new ColorHash();

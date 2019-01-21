@@ -8,13 +8,13 @@ import { SerieIcon, SerieList, SerieEdit } from './clips/Serie';
 import { GenreIcon, GenreList } from './clips/Genre';
 import { TopicIcon, TopicList } from './clips/Topic';
 import { CorrespondentIcon, CorrespondentList } from './clips/Correspondent';
-import { ServiceList, ServiceIcon } from './services';
-import { PlaylistList, PlaylistIcon } from './videos/playlist';
-import { VideoList, VideoIcon } from './videos/video';
-import Menu from './Menu';
 import buildProvider from './dataProvider';
-import { i18nProvider } from './i18n';
-import theme from './theme';
+import { i18nProvider, defaultLocale } from './i18n';
+import customRoutes from './customRoutes';
+import Menu from './layout/Menu';
+import theme from './layout/theme';
+import LoginPage from './layout/LoginPage';
+import Loading from './layout/Loading';
 
 const history = createHistory();
 
@@ -32,31 +32,29 @@ class App extends Component {
     const { dataProvider } = this.state;
 
     if (!dataProvider) {
-      return <div>Loading</div>;
+      return <Loading />;
     }
 
     return (
       <Admin
+        title="teleSUR Admin"
         dataProvider={dataProvider}
         authProvider={authProvider}
         customRoutes={customRoutes}
         i18nProvider={i18nProvider}
+        locale={defaultLocale}
         loginPage={LoginPage}
         menu={Menu}
         theme={theme}
-        locale="es"
-        title="teleSUR Admin"
         history={history}
       >
-        <Resource name="Service" list={ServiceList} icon={ServiceIcon} />
-        <Resource name="Article" list={ArticleList} show={ArticleShow} icon={ArticleIcon} />
-        <Resource name="ArticleSection" list={SectionList} icon={SectionIcon}/>
         <Resource name="Clip" list={ClipList} edit={ClipEdit} icon={ClipIcon} />
         <Resource name="Serie" list={SerieList} edit={SerieEdit} icon={SerieIcon} />
         <Resource name="Correspondent" list={CorrespondentList} icon={CorrespondentIcon} />
         <Resource name="Genre" list={GenreList} icon={GenreIcon} />
         <Resource name="Topic" list={TopicList} icon={TopicIcon} />
-        {/*<Resource name="Video" list={VideoList} icon={VideoIcon} />*/}
+        <Resource name="Article" list={ArticleList} show={ArticleShow} icon={ArticleIcon} />
+        <Resource name="ArticleSection" list={SectionList} icon={SectionIcon}/>
       </Admin>
     );
   }

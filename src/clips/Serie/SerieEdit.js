@@ -1,16 +1,10 @@
 import React from 'react';
-import Typography from '@material-ui/core/Typography';
 import { translate } from 'react-admin';
 import {
-  AutocompleteInput,
   BooleanInput,
   DisabledInput,
-  DateTimeInput,
   Edit,
-  FormTab,
   LongTextInput,
-  ReferenceInput,
-  SelectInput,
   SimpleForm,
   TextInput
 } from 'react-admin';

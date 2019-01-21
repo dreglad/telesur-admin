@@ -5,7 +5,6 @@ import {
   SimpleShowLayout,
   TextField,
   DateField,
-  EditButton,
   RichTextField
 } from 'react-admin';
 

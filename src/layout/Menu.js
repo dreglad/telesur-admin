@@ -3,13 +3,14 @@ import { connect } from 'react-redux';
 import compose from 'recompose/compose';
 import inflection from 'inflection';
 import { MenuItemLink, getResources, Responsive, translate } from 'react-admin';
-import { withRouter } from 'react-router-dom';
+// import { withRouter } from 'react-router-dom';
 import LabelIcon from '@material-ui/icons/Label';
 
 const Menu = ({ resources, onMenuClick, translate, logout }) => (
   <div>
     {resources.map(resource => (
       <MenuItemLink
+        key={resource.name}
         to={`/${resource.name}`}
         primaryText={translatedResourceName(resource, translate)}
         leftIcon={createElement(resource.icon)}
@@ -56,7 +57,7 @@ const enhance = compose(
       areStatePropsEqual: (prev, next) =>
         prev.resources.every(
           (value, index) => value === next.resources[index] // shallow compare resources
-        ) && prev.pathname == next.pathname,
+        ) && prev.pathname === next.pathname,
     }
   ),
   connect(mapStateToProps)

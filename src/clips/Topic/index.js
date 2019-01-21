@@ -1,8 +1,7 @@
 import React from 'react';
-import TopicIcon from '@material-ui/icons/LiveTv';
+import TopicIcon from '@material-ui/icons/Style';
 import {
   Datagrid,
-  DateField,
   List,
   TextField
 } from 'react-admin';

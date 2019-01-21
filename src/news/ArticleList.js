@@ -20,7 +20,7 @@ const ArticleList = props => (
       <FunctionField
         label="Images"
         render={({ images }) => (
-          <img style={{maxWidth: 200, maxHeight: 200}} src={images[0]}/>
+          <img alt="img" style={{maxWidth: 200, maxHeight: 200}} src={images[0]}/>
         )}
       />
       <DateField source="datePublished" />
