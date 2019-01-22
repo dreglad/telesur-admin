@@ -8,6 +8,7 @@
     "apollo-link-http": "^1.5.9",
     "auth0-lock": "^11.13.0",
     "color-hash": "^1.0.3",
+    "country-region-data": "^1.4.5",
     "graphql": "^14.0.2",
     "graphql-tag": "^2.10.0",
     "lodash": "^4.17.11",
