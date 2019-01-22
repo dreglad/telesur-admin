@@ -49,6 +49,7 @@ export default {
         serie {
           id
           name
+          poster
         }
         correspondent {
           id
@@ -66,6 +67,7 @@ export default {
         genre {
           id
           name
+          plural
         }
       }
     `

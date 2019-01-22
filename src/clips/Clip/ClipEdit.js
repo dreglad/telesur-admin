@@ -1,21 +1,25 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import { translate } from 'react-admin';
+import ReactPlayer from 'react-player';
 import {
-  AutocompleteInput,
   BooleanInput,
   DisabledInput,
   DateTimeInput,
   Edit,
   FormTab,
   LongTextInput,
-  ReferenceInput,
-  SelectInput,
   TabbedForm,
   TextInput
 } from 'react-admin';
-// import { DateInput, TimeInput, DateTimeInput } from 'react-admin-date-inputs';
-import ReactPlayer from 'react-player';
+import {
+  CategoryInput,
+  CorrespondentInput,
+  CountryInput,
+  GenreInput,
+  SerieInput,
+  TopicInput
+} from './inputs';
 
 const ClipEdit = ({ translate, ...props }) => (
   <Edit
@@ -27,13 +31,7 @@ const ClipEdit = ({ translate, ...props }) => (
       <FormTab label={translate('Redacci', 1)}>
         <DisabledInput label="Id" source="id" />
 
-        <ReferenceInput source="genre.id" reference="Genre" label={translate('resources.Genre.name', 1)}>
-          <SelectInput optionText="name" />
-        </ReferenceInput>
-
-        <ReferenceInput source="correspondent.id" reference="Correspondent" label={translate('resources.Correspondent.name', 1)}>
-          <AutocompleteInput optionText="name" />
-        </ReferenceInput>
+        <BooleanInput source="published" />
 
         <TextInput source="title" />
 
@@ -41,15 +39,17 @@ const ClipEdit = ({ translate, ...props }) => (
 
         <DateTimeInput source="date" />
 
-        <ReferenceInput source="serie.id" reference="Serie" label={translate('resources.Serie.name', 1)}>
-          <AutocompleteInput optionText="name" />
-        </ReferenceInput>
+        <GenreInput />
 
-        <ReferenceInput source="topic.id" reference="Topic" label={translate('resources.Topic.name', 1)}>
-          <AutocompleteInput optionText="name" />
-        </ReferenceInput>
+        <SerieInput />
 
-        <BooleanInput source="published" />
+        <CorrespondentInput />
+
+        <CategoryInput />
+
+        <TopicInput />
+
+        <CountryInput />
       </FormTab>
       <FormTab label="body">
       </FormTab>

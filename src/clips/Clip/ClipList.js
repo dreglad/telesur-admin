@@ -1,10 +1,14 @@
 import React from 'react';
+import countryData from 'country-region-data';
+import Grid from '@material-ui/core/Grid';
+import Chip from '@material-ui/core/Chip';
+import { withStyles } from '@material-ui/core/styles';
 import { translate } from 'react-admin';
 import Typography from '@material-ui/core/Typography';
 import {
-  AutocompleteInput,
   BooleanField,
   CardActions,
+  ChipField,
   CreateButton,
   Datagrid,
   DateField,
@@ -12,32 +16,39 @@ import {
   Filter,
   ImageField,
   List,
-  NullableBooleanInput,
-  ReferenceField,
-  ReferenceInput,
+  Pagination,
   RefreshButton,
   Responsive,
   SearchInput,
-  SelectInput,
   SimpleList,
-  TextField,
 } from 'react-admin';
+import {
+  CategoryInput,
+  CorrespondentInput,
+  CountryInput,
+  GenreInput,
+  SerieInput,
+  StatusInput,
+  TopicInput
+} from './inputs';
 import { PosterField } from '../Serie';
 
 const ClipList = props => (
   <List
-    filters={<ClipFilter translate={props.translate} />}
-    actions={<ClipActions />}
     {...props}
+    filters={<ClipFilter />}
+    actions={<ClipActions />}
+    perPage={25}
+    pagination={<Pagination rowsPerPageOptions={[25, 50, 100]} {...props} />}
   >
     <Responsive
-      small={<ClipsList />}
+      small={<ClipsSimpleList />}
       medium={<ClipsGrid />}
     />
   </List>
 );
 
-const ClipsList = props => (
+const ClipsSimpleList = props => (
   <SimpleList
     primaryText={record => new Date(record.date).toLocaleDateString()}
     secondaryText={record => (
@@ -49,59 +60,38 @@ const ClipsList = props => (
   />
 );
 
-const ClipsGrid = props => (
-  <Datagrid expand={<EditorialField />} {...props}>
-    <ImageField source="thumbnailSmall" title="title" />
+const gridStyles = {
+  rowCell: {
+    verticalAlign: 'top',
+  }
+};
 
-    <DateField source="date" showTime />
-
+const ClipsGrid = withStyles(gridStyles)(({ classes, ...props }) => (
+  <Datagrid {...props} classes={classes}>
+    <ImageField source="thumbnail" title="title" />
+    <EditorialField />
     <BooleanField source="published" />
-
-    {/*<MetadataField />*/}
-
-    <ReferenceField label="Genre" source="genre.id" reference="Genre" allowEmpty>
-      <TextField source="name" />
-    </ReferenceField>
-
-    {/*<Datagrid>
-      <TextField source="id" />
-      <TextField source="title" />
-      <TextField source="description" />
-    </Datagrid>*/}
-
-    <ReferenceField label="Serie" source="serie.id" reference="Serie" linkType="show" allowEmpty>
-      <PosterField />
-    </ReferenceField>
-
-    <ReferenceField label="Topic" source="topic.id" reference="Topic" linkType="show" allowEmpty>
-      <TextField source="name" />
-    </ReferenceField>
-
-    <EditButton />
+    <ClasificationGridField />
+    <ClipActionsField />
   </Datagrid>
+));
+
+const ClipActionsField = props => (
+  <div>
+    <EditButton {...props} />
+  </div>
 );
 
 export const ClipFilter = props => (
   <Filter {...props}>
-    <SearchInput source="search" alwaysOn />
-
-    <NullableBooleanInput source="published" alwaysOn />
-
-    <ReferenceInput source="genre.id" reference="Genre" perPage={300} alwaysOn label={props.translate('resources.Genre.name', 1)}>
-      <SelectInput optionText="name"/>
-    </ReferenceInput>
-
-    <ReferenceInput source="serie.id" reference="Serie" perPage={300} alwaysOn label={props.translate('resources.Serie.name', 1)}>
-      <AutocompleteInput optionText="name" />
-    </ReferenceInput>
-
-    <ReferenceInput source="correspondent.id" reference="Correspondent" perPage={300} alwaysOn label={props.translate('resources.Correspondent.name', 1)}>
-      <AutocompleteInput optionText="name" />
-    </ReferenceInput>
-
-    <ReferenceInput source="topic.id" reference="Topic" perPage={300} alwaysOn label={props.translate('resources.Topic.name', 1)}>
-      <AutocompleteInput optionText="name" />
-    </ReferenceInput>
+    <StatusInput source="published" alwaysOn label="Status" />
+    <SearchInput source="search" alwaysOn label="Search" />
+    <GenreInput alwaysOn label="resources.Genre.label" />
+    <TopicInput label="resources.Topic.label" />
+    <SerieInput alwaysOn label="resources.Serie.label" />
+    <CountryInput label="Country" />
+    <CorrespondentInput label="resources.Correspondent.label" />
+    <CategoryInput label="resources.Category.label" />
   </Filter>
 );
 
@@ -139,26 +129,65 @@ const ClipActions = ({
   </CardActions>
 );
 
-
-const MetadataField = ({ record }) => (
+const ClasificationGridField = ({ record }) => (
   <div style={{'maxWidth': '500px'}}>
-    <Typography variant="title">{record.title}</Typography>
+    <Grid container spacing={6}>
+      <Grid item xs={12}>
+        <DateField source="date" record={record} showTime />
+      </Grid>
+      <Grid item xs={12}>
+        {record.genre && <ChipField record={record.genre} source="name" />}
+      </Grid>
+      <Grid item xs={12} sm={4}>
+        <PosterField record={record.serie} />
+      </Grid>
+      <Grid item xs={12} sm={8}>
+        <Typography variant="title">{record.serie.name}</Typography>
+      </Grid>
+    </Grid>
   </div>
 );
 
-MetadataField.defaultProps = {
-    addLabel: true
+ClasificationGridField.defaultProps = {
+  addLabel: true
 };
 
 const EditorialField = ({ record }) => (
   <div style={{'maxWidth': '500px'}}>
-    <Typography variant="title">{record.title}</Typography>
-    <Typography variant="body1">{record.description}</Typography>
+    <Typography variant="subheading">
+      {record.published ? (
+        <a href={record.url} target="_blank">{record.title}</a>
+      ) : (
+        record.title
+      )}
+    </Typography>
+    {record.correspondent && <ChipField record={record.correspondent} color="seocndary" source="name" />}
+    {record.category && <ChipField record={record.category} color="primary" source="name" />}
+    {record.topic && <ChipField record={record.topic} source="name" />}
+    {record.country && <ChipField record={record} source="country" />}
+    <Typography variant="body2">{record.description}</Typography>
   </div>
 );
 
 EditorialField.defaultProps = {
-    addLabel: true
+  addLabel: true
+};
+
+const CountryField = ({ record: { country } }) => {
+  const data = countryData.find(({ countryShortCode }) => countryShortCode === country );
+  if (!data.countryName) {
+    console.log('NOOOO')
+    return;
+  }
+  return (
+    <div>
+      {`${data.countryName} (${country})`}
+    </div>
+  );
+};
+
+CountryField.defaultProps = {
+  addLabel: true
 };
 
 export default translate(ClipList);
