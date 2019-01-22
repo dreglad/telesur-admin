@@ -16,6 +16,7 @@ import Menu from './layout/Menu';
 import theme from './layout/theme';
 import LoginPage from './layout/LoginPage';
 import Loading from './layout/Loading';
+import Layout from './layout/Layout';
 
 const history = createHistory();
 
@@ -39,6 +40,7 @@ class App extends Component {
     return (
       <Admin
         title="teleSUR Admin"
+        appLayout={Layout}
         dataProvider={dataProvider}
         authProvider={authProvider}
         customRoutes={customRoutes}
