@@ -1,5 +1,9 @@
 /* es */
 export default {
+  Status: 'Estado',
+  Search: 'Buscar',
+  Country: 'País',
+  Published: 'Publicado',
   layout: {
     loading: 'Un momento...',
   },
@@ -45,30 +49,42 @@ export default {
         category: 'Categoría',
         genre: 'Tipo',
         serie: 'Programa',
-        topic: 'Tema'
+        topic: 'Tema',
+        country: 'País'
       }
     },
     Serie: {
       name: 'Programa |||| Programas',
+      label: 'Programa',
       fields: {
         name: 'Nombre',
         poster: 'Póster',
       }
     },
+    Category: {
+      name: 'Categoría |||| Categorías',
+      label: 'Categoría',
+      fields: {
+        name: 'Nombre',
+      }
+    },
     Genre: {
       name: 'Tipo |||| Tipos',
+      label: 'Tipo de clip',
       fields: {
         name: 'Nombre',
       }
     },
     Topic: {
       name: 'Tema |||| Temas',
+      label: 'Tema',
       fields: {
         name: 'Nombre'
       }
     },
     Correspondent: {
       name: 'Corresponsal |||| Corresponsales',
+      label: 'Corresponsal',
       fields: {
         name: 'Nombre',
         country: 'País'
