@@ -4,6 +4,7 @@ import createHistory from 'history/createBrowserHistory';
 import authProvider from './authProvider';
 import { ArticleIcon, ArticleList, ArticleShow, SectionIcon, SectionList } from './news';
 import { ClipIcon, ClipList, ClipEdit, } from './clips/Clip';
+import { CategoryIcon, CategoryList, } from './clips/Category';
 import { SerieIcon, SerieList, SerieEdit } from './clips/Serie';
 import { GenreIcon, GenreList } from './clips/Genre';
 import { TopicIcon, TopicList } from './clips/Topic';
@@ -53,6 +54,7 @@ class App extends Component {
         <Resource name="Correspondent" list={CorrespondentList} icon={CorrespondentIcon} />
         <Resource name="Genre" list={GenreList} icon={GenreIcon} />
         <Resource name="Topic" list={TopicList} icon={TopicIcon} />
+        <Resource name="Category" list={CategoryList} icon={CategoryIcon} />
         <Resource name="Article" list={ArticleList} show={ArticleShow} icon={ArticleIcon} />
         <Resource name="ArticleSection" list={SectionList} icon={SectionIcon}/>
       </Admin>
