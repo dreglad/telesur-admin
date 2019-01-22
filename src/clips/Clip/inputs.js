@@ -11,7 +11,7 @@ import {
 const translate = x => x;
 
 export const CountryInput = props => (
-  <AutocompleteInput source="country" label="Paíss" alwaysOn choices={countryData.map(country => ({
+  <AutocompleteInput source="country" label="Country" allowEmpty choices={countryData.map(country => ({
     id: country.countryShortCode,
     name: `${country.countryName} (${country.countryShortCode})`
   }))} />
@@ -24,25 +24,25 @@ export const GenreInput = props => (
 );
 
 export const CorrespondentInput = props => (
-  <ReferenceInput source="correspondent.id" reference="Correspondent" perPage={300} label="resources.Correspondent.label">
+  <ReferenceInput source="correspondent.id" reference="Correspondent" perPage={300} allowEmpty label="resources.Correspondent.label">
     <AutocompleteInput optionText="name" />
   </ReferenceInput>
 );
 
 export const SerieInput = props => (
-  <ReferenceInput source="serie.id" reference="Serie" perPage={300} label="resources.Serie.label">
+  <ReferenceInput source="serie.id" reference="Serie" perPage={300} allowEmpty label="resources.Serie.label">
     <AutocompleteInput optionText="name" />
   </ReferenceInput>
 );
 
 export const TopicInput = props => (
-  <ReferenceInput source="topic.id" reference="Topic" perPage={300} label="resources.Topic.label">
+  <ReferenceInput source="topic.id" reference="Topic" perPage={300} allowEmpty label="resources.Topic.label">
     <AutocompleteInput optionText="name" />
   </ReferenceInput>
 );
 
 export const CategoryInput = props => (
-  <ReferenceInput source="category.id" reference="Category" perPage={300} label="resources.Category.label">
+  <ReferenceInput source="category.id" reference="Category" perPage={300} allowEmpty label="resources.Category.label">
     <AutocompleteInput optionText="name" />
   </ReferenceInput>
 );
