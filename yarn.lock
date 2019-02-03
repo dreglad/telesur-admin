@@ -9219,6 +9219,11 @@ react-avatar@^3.5.0:
     is-retina "^1.0.3"
     md5 "^2.0.0"
 
+react-country-flag@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/react-country-flag/-/react-country-flag-1.0.1.tgz#30594a8500f98fa30a3ff4b909d985c47b130a7f"
+  integrity sha512-kIdiwofJbNjkz3ZNiJuRzKttEZCyBVkT6AUmeLp6Y8W1b2Tng+1dSuMV4WmXZ1FDM6mfRcoSGiwAj4PUoE8kZw==
+
 react-dev-utils@^7.0.1:
   version "7.0.1"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-7.0.1.tgz#c53e759a22668ee2c0d146c24ce4bdec2b41e3c8"

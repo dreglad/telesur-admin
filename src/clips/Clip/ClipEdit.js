@@ -5,12 +5,16 @@ import Typography from '@material-ui/core/Typography';
 import { translate } from 'react-admin';
 import ReactPlayer from 'react-player';
 import {
+  ArrayInput,
+  AutocompleteArrayInput,
   BooleanInput,
   DisabledInput,
   DateTimeInput,
   Edit,
   FormTab,
   LongTextInput,
+  ReferenceArrayInput,
+  ReferenceInput,
   TabbedForm,
   TextInput
 } from 'react-admin';
@@ -30,25 +34,43 @@ const ClipEdit = ({ translate, ...props }) => (
     {...props}
   >
     <TabbedForm>
-      <FormTab label={translate('Redacci', 1)}>
-        <Grid container spacing={6}>
+      <FormTab label={translate('Info')}>
+        <Grid container spacing={8}>
           <Grid item xs={6}>
-            <BooleanInput source="published" label={translate('resources.Clip.fields.published')} />
+            <BooleanInput source="published" label="resources.Clip.fields.published" />
           </Grid>
           <Grid item xs={6}>
-            <BooleanInput source="uploadYoutube" label={translate('resources.Clip.fields.uploadYoutube')} />
+            <BooleanInput source="uploadYoutube" label="resources.Clip.fields.uploadYoutube" />
           </Grid>
           <Grid item xs={6}>
             <DisabledInput label="Id" source="id" />
           </Grid>
           <Grid item xs={6}>
-            <DateTimeInput source="date" label={translate('resources.Clip.fields.date')} />
+            <DateTimeInput source="date" label="resources.Clip.fields.date" />
           </Grid>
           <Grid item xs={12}>
-            <TextInput source="title" label={translate('resources.Clip.fields.title')} style={{ width: '100%'}} />
+            <TextInput source="title" label="resources.Clip.fields.title" style={{ width: '100%'}} />
           </Grid>
           <Grid item xs={12}>
-            <LongTextInput source="description" label={translate('resources.Clip.fields.description')} />
+            <LongTextInput source="description" label="resources.Clip.fields.description" />
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <AutocompleteArrayInput source="tags" options={{
+              fullWidth: true
+            }} />
+            {/*<ArrayInput source="tags">
+              <SimpleFormIterator>
+                <ChipInput />
+              </SimpleFormIterator>
+            </ArrayInput>*/}
+          </Grid>
+          <Grid item xs={12} md={6}>
+            <AutocompleteArrayInput source="hashtags" options={{
+              fullWidth: true
+            }} />
+          </Grid>
+          <Grid item xs={6}>
+            <DateTimeInput source="date" label="resources.Clip.fields.date" />
           </Grid>
           <Grid item xs={12} sm={6} lg={4} xl={3}>
             <GenreInput />
