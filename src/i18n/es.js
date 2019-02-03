@@ -50,7 +50,8 @@ export default {
         genre: 'Tipo',
         serie: 'Programa',
         topic: 'Tema',
-        country: 'País'
+        country: 'País',
+        correspondent: 'Corresponsal'
       }
     },
     Serie: {

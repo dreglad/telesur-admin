@@ -12,7 +12,8 @@ const CustomUserMenu = props => (
   </UserMenu>
 );
 
-const CustomAppBar = props => (
+const CustomAppBar
+ = props => (
   <AppBar {...props} userMenu={<CustomUserMenu />} />
 );
 
