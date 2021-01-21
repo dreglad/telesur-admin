@@ -11,7 +11,7 @@
     "country-region-data": "^1.4.5",
     "graphql": "^14.0.2",
     "graphql-tag": "^2.10.0",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.19",
     "prop-types": "^15.6.2",
     "ra-data-opencrud": "^0.0.7",
     "ra-language-english": "^2.3.0",
