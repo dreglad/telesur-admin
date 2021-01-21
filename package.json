@@ -6,7 +6,7 @@
     "apollo-client": "^2.4.9",
     "apollo-link-context": "^1.0.12",
     "apollo-link-http": "^1.5.9",
-    "auth0-lock": "^11.13.0",
+    "auth0-lock": "^11.26.0",
     "color-hash": "^1.0.3",
     "country-region-data": "^1.4.5",
     "graphql": "^14.0.2",
