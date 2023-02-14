@@ -17,7 +17,7 @@
     "ra-language-english": "^2.3.0",
     "ra-language-spanish": "^1.0.0",
     "react": "^16.7.0",
-    "react-admin": "^2.5.1",
+    "react-admin": "^3.19.12",
     "react-avatar": "^3.5.0",
     "react-country-flag": "^1.0.1",
     "react-dom": "^16.7.0",
